@@ -29,6 +29,7 @@ namespace ShopOnline.Data
         public DbSet<Slide> Slide { get; set; }
         public DbSet<SystemConfig> SystemConfig { get; set; }
         public DbSet<Tag> Tag { get; set; }
+        public DbSet<ErrorLog> ErrorLog { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
