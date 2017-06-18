@@ -17,7 +17,7 @@ namespace ShopOnline.Data.Repositories
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
 
-        public ProductRepository(DbFactory dbFactory) :
+        public ProductRepository(IDbFactory dbFactory) :
             base(dbFactory)
         {
 

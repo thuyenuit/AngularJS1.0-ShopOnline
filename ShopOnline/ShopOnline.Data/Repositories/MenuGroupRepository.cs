@@ -17,7 +17,7 @@ namespace ShopOnline.Data.Repositories
     public class MenuGroupRepository : RepositoryBase<MenuGroup>, IMenuGroupRepository
     {
 
-        public MenuGroupRepository(DbFactory dbFactory) :
+        public MenuGroupRepository(IDbFactory dbFactory) :
             base(dbFactory)
         {
 

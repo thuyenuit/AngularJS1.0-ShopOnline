@@ -24,7 +24,7 @@ namespace ShopOnline.Data
         public DbSet<Post> Post { get; set; }
         public DbSet<PostCategory> PostCategory { get; set; }
         public DbSet<Product> Product { get; set; }
-        public DbSet<ProductCatgory> ProductCatgory { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
         public DbSet<ProductTag> ProductTag { get; set; }
         public DbSet<Slide> Slide { get; set; }
         public DbSet<SystemConfig> SystemConfig { get; set; }

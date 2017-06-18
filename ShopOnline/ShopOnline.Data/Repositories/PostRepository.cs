@@ -17,7 +17,7 @@ namespace ShopOnline.Data.Repositories
     public class PostRepositorycs : RepositoryBase<Post>, IPostRepositorycs
     {
 
-        public PostRepositorycs(DbFactory dbFactory) :
+        public PostRepositorycs(IDbFactory dbFactory) :
             base(dbFactory)
         {
 

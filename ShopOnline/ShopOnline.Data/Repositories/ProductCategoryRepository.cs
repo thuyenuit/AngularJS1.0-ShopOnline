@@ -10,23 +10,23 @@ using System.Threading.Tasks;
 namespace ShopOnline.Data.Repositories
 {
     // định nghĩa thêm các method cần thêm không có sẵn trong RepositoryBase
-    public interface IProductCategoryRepository : IRepository<ProductCatgory>
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
-        IEnumerable<ProductCatgory> GetByAlias(string alias);
+        IEnumerable<ProductCategory> GetByAlias(string alias);
     }
 
-    public class ProductCategoryRepository: RepositoryBase<ProductCatgory>, IProductCategoryRepository
+    public class ProductCategoryRepository: RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
 
-        public ProductCategoryRepository(DbFactory dbFactory) :
+        public ProductCategoryRepository(IDbFactory dbFactory) :
             base(dbFactory)
         {
 
         }
 
-        public IEnumerable<ProductCatgory> GetByAlias(string alias)
+        public IEnumerable<ProductCategory> GetByAlias(string alias)
         {
-            return DbContext.ProductCatgory.Where(x => x.ProductCatgoryAlias == alias);
+            return DbContext.ProductCategory.Where(x => x.ProductCatgoryAlias == alias);
         }
     }
 }
