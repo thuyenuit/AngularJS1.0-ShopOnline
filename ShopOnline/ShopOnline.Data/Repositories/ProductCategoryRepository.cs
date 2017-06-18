@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ShopOnline.Data.Repositories
 {
     // định nghĩa thêm các method cần thêm không có sẵn trong RepositoryBase
-    public interface IProductCategoryRepository
+    public interface IProductCategoryRepository : IRepository<ProductCatgory>
     {
         IEnumerable<ProductCatgory> GetByAlias(string alias);
     }

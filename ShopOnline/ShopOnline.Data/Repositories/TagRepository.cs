@@ -1,4 +1,5 @@
 ﻿using ShopOnline.Data.Infrastructure.Implements;
+using ShopOnline.Data.Infrastructure.Interfaces;
 using ShopOnline.Model.Model;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Data.Repositories
 {
-    public interface ITagRepository
+    public interface ITagRepository : IRepository<Tag>
     {
 
     }
 
-    public class TagRepository : RepositoryBase<SystemConfig>, ITagRepository
+    public class TagRepository : RepositoryBase<Tag>, ITagRepository
     {
         public TagRepository(DbFactory dbFactory) :
             base(dbFactory)

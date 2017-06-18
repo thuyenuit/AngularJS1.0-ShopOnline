@@ -1,4 +1,5 @@
 ﻿using ShopOnline.Data.Infrastructure.Implements;
+using ShopOnline.Data.Infrastructure.Interfaces;
 using ShopOnline.Model.Model;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Data.Repositories
 {
-    public interface IFooterRepository
+    public interface IFooterRepository : IRepository<Footer>
     {
        
     }
