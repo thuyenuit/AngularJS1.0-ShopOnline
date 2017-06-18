@@ -46,6 +46,6 @@ namespace ShopOnline.Model.Model
 
         public bool OrderStatus { get; set; }
 
-
+        public virtual IEnumerable<OrderDetail> OrderDetails { set; get; }
     }
 }

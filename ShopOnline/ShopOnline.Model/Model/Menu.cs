@@ -28,12 +28,12 @@ namespace ShopOnline.Model.Model
         [Required]
         public int MenuGroupID { get; set; }
 
-        [ForeignKey("MenuGroupID")]
-        public virtual MenuGroup MenuGroup { get; set; }
-
         public string MenuTarget { get; set; }
 
         [Required]
         public bool MenuStatus { get; set; }
+
+        [ForeignKey("MenuGroupID")]
+        public virtual MenuGroup MenuGroup { get; set; }
     }
 }

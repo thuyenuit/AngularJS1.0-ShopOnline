@@ -22,5 +22,9 @@ namespace ShopOnline.Model.Model
         [Required]
         [MaxLength(100)]
         public string TagType { get; set; }
+
+        public virtual IEnumerable<PostTag> PostTags { set; get; }
+
+        public virtual IEnumerable<ProductTag> ProductTags { set; get; }
     }
 }
