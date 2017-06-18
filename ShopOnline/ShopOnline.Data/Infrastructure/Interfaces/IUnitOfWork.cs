@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.Data.Infrastructure
+﻿namespace ShopOnline.Data.Infrastructure.Interfaces
 {
     public interface IUnitOfWork
     {
