@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A236710D-5885-4AD2-AD24-F8660FC1DDFF}</ProjectGuid>
+    <ProjectGuid>{0C66E43F-4504-45D7-BE93-79A6FAFDA8DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShopOnline.Model</RootNamespace>
@@ -53,19 +53,22 @@
     <Compile Include="Model\Footer.cs" />
     <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\MenuGroup.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderDetail.cs" />
+    <Compile Include="Model\Post.cs" />
+    <Compile Include="Model\PostCategory.cs" />
+    <Compile Include="Model\PostTag.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductCatgory.cs" />
+    <Compile Include="Model\ProductTag.cs" />
+    <Compile Include="Model\Slide.cs" />
+    <Compile Include="Model\SystemConfig.cs" />
+    <Compile Include="Model\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ShopOnline.Data\ShopOnline.Data.csproj">
-      <Project>{80651754-7535-49aa-bb3a-f5a193de666e}</Project>
-      <Name>ShopOnline.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
