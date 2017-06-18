@@ -199,6 +199,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ProductCategoryController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Core\BaseApiController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -278,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Admin\" />
+    <Folder Include="Assets\Client\" />
+    <Folder Include="Infrastructure\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -296,8 +301,16 @@
       <Name>ShopOnline.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShopOnline.Model\ShopOnline.Model.csproj">
-      <Project>{a236710d-5885-4ad2-ad24-f8660fc1ddff}</Project>
+      <Project>{0c66e43f-4504-45d7-be93-79a6fafda8dd}</Project>
       <Name>ShopOnline.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopOnline.Service\ShopOnline.Service.csproj">
+      <Project>{a91d3469-fc49-4154-bb0b-c4d43d5bd492}</Project>
+      <Name>ShopOnline.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopOnline.ViewModel\ShopOnline.ViewModel.csproj">
+      <Project>{f451e170-b23f-423a-9f05-850a55786e3d}</Project>
+      <Name>ShopOnline.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
