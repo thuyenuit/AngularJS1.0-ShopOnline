@@ -14,9 +14,9 @@ namespace ShopOnline.Model.Model
         [Key]
         [MaxLength(50)]
         [Column(TypeName ="varchar")]
-        public string ID { get; set; }
+        public string FooterID { get; set; }
 
         [Required]
-        public string Content { get; set; }
+        public string FooterContent { get; set; }
     }
 }
