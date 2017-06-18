@@ -11,12 +11,12 @@ namespace ShopOnline.Service.Services
 {
     public interface IProductCategoryService
     {
-        void Add(ProductCatgory productCategory);
-        void Update(ProductCatgory productCategory);
+        void Add(ProductCategory productCategory);
+        void Update(ProductCategory productCategory);
         void Delele(int id);
-        IEnumerable<ProductCatgory> GetAll();
-        IEnumerable<ProductCatgory> GetAllPaging(int page, int pageSize, out int totalRow);
-        ProductCatgory GetSingleById(int id);
+        IEnumerable<ProductCategory> GetAll();
+        IEnumerable<ProductCategory> GetAllPaging(int page, int pageSize, out int totalRow);
+        ProductCategory GetSingleById(int id);
         void SaveChanges();
     }
 
@@ -32,7 +32,7 @@ namespace ShopOnline.Service.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public void Add(ProductCatgory productCategory)
+        public void Add(ProductCategory productCategory)
         {
             productCategoryRepository.Add(productCategory);
         }
@@ -42,17 +42,17 @@ namespace ShopOnline.Service.Services
             productCategoryRepository.Delete(id);
         }
 
-        public IEnumerable<ProductCatgory> GetAll()
+        public IEnumerable<ProductCategory> GetAll()
         {
             return productCategoryRepository.GetAll();
         }
 
-        public IEnumerable<ProductCatgory> GetAllPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<ProductCategory> GetAllPaging(int page, int pageSize, out int totalRow)
         {
             return productCategoryRepository.GetMultiPaging(x => x.Status == true, out totalRow, page, pageSize);
         }
 
-        public ProductCatgory GetSingleById(int id)
+        public ProductCategory GetSingleById(int id)
         {
             return productCategoryRepository.GetSingleById(id);
         }
@@ -62,7 +62,7 @@ namespace ShopOnline.Service.Services
             unitOfWork.Commit();
         }
 
-        public void Update(ProductCatgory productCategory)
+        public void Update(ProductCategory productCategory)
         {
             productCategoryRepository.Update(productCategory);
         }
