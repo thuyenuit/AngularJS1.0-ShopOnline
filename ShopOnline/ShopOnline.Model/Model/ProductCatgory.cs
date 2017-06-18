@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ShopOnline.Model.Model
 {
     [Table("ProductCategories")]
-    public class ProductCatgory : Auditable
+    public class ProductCategory : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -54,7 +54,7 @@ namespace ShopOnline.Model.Model
         public int? ProductViewCount { get; set; }
 
         [ForeignKey("ProductCategoryID")]
-        public virtual ProductCatgory ProductCategories { get; set; }
+        public virtual ProductCategory ProductCategories { get; set; }
 
         public virtual IEnumerable<ProductTag> ProductTags { set; get; }
 
