@@ -22,12 +22,10 @@ namespace ShopOnline.Model.Model
 
         [Required]
         [MaxLength(255)]
+        [Column(TypeName = "varchar")]
         public string ProductAlias { get; set; }
 
         public int ProductCategoryID { get; set; }
-
-        [ForeignKey("ProductCategoryID")]
-        public virtual ProductCatgory ProductCategory { get; set; }
 
         [MaxLength(500)]
         public string ProductImage { get; set; }
@@ -41,14 +39,21 @@ namespace ShopOnline.Model.Model
 
         public int? ProductWarranty { get; set; }
 
+        public int? ProductQuantity { get; set; }
+
+        [MaxLength(255)]
         public string ProductDescription { get; set; }
 
+        [MaxLength(500)]
         public string ProductContent { get; set; }
 
-        public bool? HomeFlag { get; set; }
+        public bool? ProductHomeFlag { get; set; }
 
-        public bool? HotFlag { get; set; }
+        public bool? ProductHotFlag { get; set; }
 
-        public int? ViewCount { get; set; }
+        public int? ProductViewCount { get; set; }
+
+        [ForeignKey("ProductCategoryID")]
+        public virtual ProductCatgory ProductCategories { get; set; }
     }
 }

@@ -8,14 +8,19 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Model.Model
 {
-    [Table("Footers")]
-    public class Footer
+    [Table("Tags")]
+    public class Tag
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int FooterID { get; set; }
+        public int TagID { get; set; }
 
         [Required]
-        public string FooterContent { get; set; }
+        [MaxLength(100)]
+        public string TagName { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string TagType { get; set; }
     }
 }

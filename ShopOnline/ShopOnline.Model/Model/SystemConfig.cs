@@ -8,14 +8,20 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Model.Model
 {
-    [Table("Footers")]
-    public class Footer
+    [Table("SystemConfigs")]
+    public class SystemConfig
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int FooterID { get; set; }
+        public int SystemConfigID { get; set; }
 
         [Required]
-        public string FooterContent { get; set; }
+        [MaxLength(255)]
+        public string SystemConfigContent { get; set; }
+
+        [Required]
+        public bool SystemConfigStatus { get; set; }
+
+
     }
 }

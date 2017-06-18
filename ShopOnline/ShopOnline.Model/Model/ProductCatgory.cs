@@ -33,7 +33,7 @@ namespace ShopOnline.Model.Model
 
         public string ProductCatgoryImage { get; set; }
 
-        public bool? HomeFlag { get; set; }
+        public bool? ProductCatgoryHomeFlag { get; set; }
 
         public virtual IEnumerable<Product> Products { get; set; }
     }
