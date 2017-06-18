@@ -8,5 +8,6 @@ namespace ShopOnline.ViewModel
 {
     public class Class1
     {
+        int u = 0;
     }
 }
