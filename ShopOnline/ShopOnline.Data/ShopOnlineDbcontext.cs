@@ -1,4 +1,5 @@
-﻿using ShopOnline.Model.Model;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using ShopOnline.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Data
 {
-    public class ShopOnlineDbcontext: DbContext
+    public class ShopOnlineDbcontext: IdentityDbContext<ApplicationUser>
     {
         public ShopOnlineDbcontext()
             : base("ShopOnlineConnection")
@@ -31,9 +32,17 @@ namespace ShopOnline.Data
         public DbSet<Tag> Tag { get; set; }
         public DbSet<ErrorLog> ErrorLog { get; set; }
 
+        public static ShopOnlineDbcontext Create()
+        {
+            return new ShopOnlineDbcontext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
