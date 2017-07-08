@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ShopOnline.Web.Models;
+using ShopOnline.Model.Model;
 
 namespace ShopOnline.Web.Controllers
 {
