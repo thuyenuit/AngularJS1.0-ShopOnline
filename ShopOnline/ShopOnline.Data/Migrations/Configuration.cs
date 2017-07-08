@@ -22,11 +22,12 @@
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ShopOnlineDbcontext()));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ShopOnlineDbcontext()));
 
-            var user = new ApplicationUser() {
+            var user = new ApplicationUser()
+            {
                 UserName = "thuyenbu",
                 Email = "nhatthu100@gmail.com",
                 EmailConfirmed = true,
-                BirthDay  =DateTime.Now,
+                BirthDay = DateTime.Now,
                 FullName = "Nguyễn Văn Thuyền",
                 FirstName = "Thuyền",
             };
@@ -42,7 +43,6 @@
 
             var adminUser = manager.FindByEmail("nhatthu100@gmail.com");
             manager.AddToRoles(adminUser.Id, new string[] { "Admin", "Employee", "User" });
-
         }
     }
 }
