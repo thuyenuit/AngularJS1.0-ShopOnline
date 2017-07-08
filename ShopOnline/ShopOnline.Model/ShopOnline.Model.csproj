@@ -69,7 +69,7 @@
     <Compile Include="Model\PostCategory.cs" />
     <Compile Include="Model\PostTag.cs" />
     <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\ProductCatgory.cs" />
+    <Compile Include="Model\ProductCategory.cs" />
     <Compile Include="Model\ProductTag.cs" />
     <Compile Include="Model\Slide.cs" />
     <Compile Include="Model\SystemConfig.cs" />
