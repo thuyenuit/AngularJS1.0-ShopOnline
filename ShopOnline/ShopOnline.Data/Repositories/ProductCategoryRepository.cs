@@ -26,7 +26,7 @@ namespace ShopOnline.Data.Repositories
 
         public IEnumerable<ProductCategory> GetByAlias(string alias)
         {
-            return DbContext.ProductCategory.Where(x => x.ProductCatgoryAlias == alias);
+            return DbContext.ProductCategory.Where(x => x.ProductCategoryAlias == alias);
         }
     }
 }
