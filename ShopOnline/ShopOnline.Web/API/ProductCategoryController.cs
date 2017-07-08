@@ -13,7 +13,7 @@ using ShopOnline.Web.Infrastructure.Extensions;
 
 namespace ShopOnline.Web.API
 {
-    [RoutePrefix("productcategory")]
+    [RoutePrefix("api/productcategory")]
     public class ProductCategoryController : BaseApiController
     {
         IProductCategoryService productCategoryService;
@@ -31,19 +31,38 @@ namespace ShopOnline.Web.API
             return CreateHttpReponse(request, () =>
             {
                 var lst = productCategoryService.GetAll();
-                var lstResponse = Mapper.Map<List<ProductCategoryViewModel>>(lst);
+                var lstResponse = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable< ProductCategoryViewModel>>(lst);
 
                 int totalRow = lstResponse.Count();
                 var query = lstResponse.Skip((page) * pageSize).Take(pageSize);
+
+                int showFrom = page * pageSize + 1;
+                int showTo = page * pageSize + pageSize;
+                if (showTo > totalRow)
+                    showTo = totalRow;
 
                 var paginationset = new PaginationSet<ProductCategoryViewModel>()
                 {
                     Items = query.ToList(),
                     Page = page, 
                     TotalCount = totalRow,
-                    TotalPages =  (int)Math.Ceiling((decimal)totalRow / pageSize)
+                    TotalPages =  (int)Math.Ceiling((decimal)totalRow / pageSize),
+                    ShowFrom = showFrom,
+                    ShowTo = showTo
                 };
                 var response = request.CreateResponse(HttpStatusCode.OK, paginationset);
+                return response;
+            });
+        }
+
+        [Route("getbyid")]
+        public HttpResponseMessage GetCategoryByID(HttpRequestMessage request, int categoryId)
+        {
+            return CreateHttpReponse(request, () =>
+            {
+                var obj = productCategoryService.GetSingleById(categoryId);
+                var objResponse = Mapper.Map<ProductCategory, ProductCategoryViewModel>(obj);
+                var response = request.CreateResponse(HttpStatusCode.OK, objResponse);
                 return response;
             });
         }
@@ -82,7 +101,7 @@ namespace ShopOnline.Web.API
             {
                 HttpResponseMessage response = null;
 
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadGateway, ModelState);
                 }
@@ -90,7 +109,7 @@ namespace ShopOnline.Web.API
                 {
                     var productCategoryDB = productCategoryService.GetSingleById(productCategoryVM.ProductCategoryID);
                     productCategoryDB.UpdateProductCategory(productCategoryVM);
-                    productCategoryService.Add(productCategoryDB);
+                    productCategoryService.Update(productCategoryDB);
                     productCategoryService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.Created, productCategoryDB);
