@@ -8,21 +8,21 @@ namespace ShopOnline.ViewModel.ViewModel
 {
     public class ProductCategoryViewModel
     {
-        public int ProductCatgoryID { get; set; }
+        public int ProductCategoryID { get; set; }
 
-        public string ProductCatgoryName { get; set; }
+        public string ProductCategoryName { get; set; }
 
-        public string ProductCatgoryAlias { get; set; }
+        public string ProductCategoryAlias { get; set; }
 
-        public string ProductCatgoryDescription { get; set; }
+        public string ProductCategoryDescription { get; set; }
 
-        public int? ProductCatgoryParentID { get; set; }
+        public int? ProductCategoryParentID { get; set; }
 
-        public int? ProductCatgoryDisplayOrder { get; set; }
+        public int? ProductCategoryDisplayOrder { get; set; }
 
-        public string ProductCatgoryImage { get; set; }
+        public string ProductCategoryImage { get; set; }
 
-        public bool? ProductCatgoryHomeFlag { get; set; }
+        public bool? ProductCategoryHomeFlag { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
