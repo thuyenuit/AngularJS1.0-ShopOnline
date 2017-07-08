@@ -30,15 +30,15 @@ namespace ShopOnline.UnitTest.RepositoryTest
         public void ProductCategoryRepositoryCreate()
         {
             ProductCategory product = new ProductCategory();
-            product.ProductCatgoryName = "San Pham 1";
-            product.ProductCatgoryAlias = "San-Pham-1";
+            product.ProductCategoryName = "San Pham 1";
+            product.ProductCategoryAlias = "San-Pham-1";
             product.Status = true;
 
             var result = objRepository.Add(product);
             unitOfWork.Commit();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.ProductCatgoryID);
+            Assert.AreEqual(1, result.ProductCategoryID);
         }
     }
 }
