@@ -43,19 +43,36 @@
                                          ng-class="{'has-error': frmAddPC.productCategory.$invalid && !frmAddPC.productCategory.$pristine }">
                                         <label class="col-sm-3 control-label">Tên thể loại *</label>
                                         <div class="col-sm-9">
-                                            <input ng-model="pcInfo.ProductCategoryName" type="text" name="productCategory" class="form-control" placeholder="Thể loại">
-                                        </div>
-                                    </div>                         
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Mô tả ngắn *</label>
-                                        <div class="col-sm-9">
-                                            <input ng-model="pcInfo.ProductCategoryDescription" type="text" class="form-control" placeholder="Mô tả ngắn">
+                                          <input ng-required="true" ng-model="pcInfo.ProductCategoryName" ng-change="GetSEOTitle()"
+                                                   type="text" name="productCategory" class="form-control" placeholder="Thể loại">
+                                            <span class="has-error" ng-show="frmAddPC.productCategory.$touched && frmAddPC.productCategory.$error.required">
+                                                Vui lòng nhập tên thể loại!
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group"
+                                         ng-class="{'has-error': frmAddPC.productCategoryDescription.$invalid && !frmAddPC.productCategoryDescription.$pristine }">
+                                        <label class="col-sm-3 control-label">Mô tả ngắn *</label>
+                                        <div class="col-sm-9">
+                                            <input ng-required="true" ng-model="pcInfo.ProductCategoryDescription"
+                                                   maxlength="100" name="productCategoryDescription" type="text" class="form-control" placeholder="Mô tả ngắn">
+                                            <span class="has-error" ng-show="frmAddPC.productCategoryDescription.$touched && frmAddPC.productCategoryDescription.$error.required">
+                                                Vui lòng nhập mô tả ngắn! Không quá 100 ký tự.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': frmAddPC.order.$invalid && !frmAddPC.order.$pristine }">
                                         <label class="col-sm-3 control-label">Thứ tự *</label>
                                         <div class="col-sm-9">
-                                            <input ng-model="pcInfo.ProductCategoryDisplayOrder" type="text" class="form-control" placeholder="Thứ tự">
+                                            <input ng-required="true" maxlength="3" name="order" min="1" ng-model="pcInfo.ProductCategoryDisplayOrder"
+                                                   type="number" class="form-control" placeholder="Thứ tự">
+                                            <span class="has-error" ng-show="frmAddPC.order.$touched && frmAddPC.order.$error.required">
+                                                Vui lòng nhập thứ tự sắp xếp!
+                                            </span>
+                                            <div ng-messages="frmAddPC.order.$error" role="alert">
+                                                <div ng-message="maxlength">Nhập không quá 3 ký số!</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -69,7 +86,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Tiêu đề SEO</label>
                                         <div class="col-sm-9">
-                                            <input ng-model="pcInfo.ProductCategoryAlias" type="text" class="form-control">
+                                            <input ng-model="pcInfo.ProductCategoryAlias" type="text" class="form-control" placeholder="Tiêu đề SEO" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -93,16 +110,14 @@
                                         <div class="col-sm-9">
                                             <div class="col-sm-6">
                                                 <div class="checkbox">
-                                                    <label>
-                                                        <input ng-model="pcInfo.Status" disabled ng-checked="true" type="checkbox"> Kích hoạt
-                                                    </label>
+                                                    <md-checkbox ng-model="pcInfo.Status" disabled ng-checked="true"/>
+                                                    Kích hoạt
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="checkbox">
-                                                    <label>
-                                                        <input ng-model="pcInfo.ProductCategoryHomeFlag" ng-checked="pcInfo.ProductCatgoryHomeFlag" type="checkbox"> Hiển thị trang chủ
-                                                    </label>
+                                                   <md-checkbox ng-model="pcInfo.ProductCategoryHomeFlag" ng-checked="pcInfo.ProductCatgoryHomeFlag"/>
+                                                   Hiển thị trang chủ 
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +127,9 @@
                                     <div class="col-md-2">
                                     </div>
                                     <div class="col-md-3">
-                                        <button type="submit" class="btn btn-info btn-flat pull-right"><i class="fa fa-save"></i> Lưu</button>
+                                        <button type="submit" ng-disabled="frmAddPC.$invalid" class="btn btn-primary btn-flat pull-right">
+                                            <i class="fa fa-save"></i> Lưu
+                                        </button>
                                     </div>
                                     <div class="col-md-3">
                                         <button type="button" ui-sref="productCategories" class="btn btn-default btn-flat"><i class="fa fa-undo"></i>  Quay lại</button>

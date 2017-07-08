@@ -1,10 +1,136 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-    Cạp nhật
-</body>
-</html>
+﻿
+<section class="content-header">
+    <h1>
+        Cập nhật
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Thể loại</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thông tin Thể loại</h3>
+                </div>
+                <div ng-init="pcInfo={}">
+                    <form class="form-horizontal" novalidate name="frmUpdatePC" role="form" ng-submit="UpdateProductCategory()">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"
+                                         ng-class="{'has-error': frmAddPC.productCategory.$invalid && !frmAddPC.productCategory.$pristine }">
+                                        <label class="col-sm-3 control-label">Tên thể loại *</label>
+                                        <div class="col-sm-9">
+                                            <input ng-required="true" ng-model="pcInfo.ProductCategoryName" ng-change="GetSEOTitle()"
+                                                   type="text" name="productCategory" class="form-control" placeholder="Thể loại">
+                                            <span class="has-error" ng-show="frmAddPC.productCategory.$touched && frmAddPC.productCategory.$error.required">
+                                                Vui lòng nhập tên thể loại!
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': frmAddPC.productCategoryDescription.$invalid && !frmAddPC.productCategoryDescription.$pristine }">
+                                        <label class="col-sm-3 control-label">Mô tả ngắn *</label>
+                                        <div class="col-sm-9">
+                                            <input ng-required="true" ng-model="pcInfo.ProductCategoryDescription"
+                                                   maxlength="100" name="productCategoryDescription" type="text" class="form-control" placeholder="Mô tả ngắn">
+                                            <span class="has-error" ng-show="frmAddPC.productCategoryDescription.$touched && frmAddPC.productCategoryDescription.$error.required">
+                                                Vui lòng nhập mô tả ngắn! Không quá 100 ký tự.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"
+                                         ng-class="{'has-error': frmAddPC.order.$invalid && !frmAddPC.order.$pristine }">
+                                        <label class="col-sm-3 control-label">Thứ tự *</label>
+                                        <div class="col-sm-9">
+                                            <input ng-required="true" maxlength="3" name="order" min="1" ng-model="pcInfo.ProductCategoryDisplayOrder"
+                                                   type="number" class="form-control" placeholder="Thứ tự">
+                                            <span class="has-error" ng-show="frmAddPC.order.$touched && frmAddPC.order.$error.required">
+                                                Vui lòng nhập thứ tự sắp xếp!
+                                            </span>
+                                            <div ng-messages="frmAddPC.order.$error" role="alert">
+                                                <div ng-message="maxlength">Nhập không quá 3 ký số!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Hình ảnh</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Tiêu đề SEO</label>
+                                        <div class="col-sm-9">
+                                            <input ng-model="pcInfo.ProductCategoryAlias" type="text" class="form-control" placeholder="Tiêu đề SEO" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Meta Keyword</label>
+                                        <div class="col-sm-9">
+                                            <textarea ng-model="pcInfo.MetaKeyword" class="form-control" placeholder="Meta Keyword"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">MetaDescription</label>
+                                        <div class="col-sm-9">
+                                            <textarea ng-model="pcInfo.MetaDescription" class="form-control" placeholder="Meta Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-9">
+                                            <div class="col-sm-6">
+                                                <div class="checkbox">
+                                                    <md-checkbox ng-model="pcInfo.Status" disabled ng-checked="true" />
+                                                    Kích hoạt
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="checkbox">
+                                                    <md-checkbox ng-model="pcInfo.ProductCategoryHomeFlag" ng-checked="pcInfo.ProductCatgoryHomeFlag" />
+                                                    Hiển thị trang chủ
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" ng-disabled="frmUpdatePC.$invalid" class="btn btn-primary btn-flat pull-right">
+                                            <i class="fa fa-save"></i> Lưu
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ui-sref="productCategories" class="btn btn-default btn-flat"><i class="fa fa-undo"></i>  Quay lại</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
