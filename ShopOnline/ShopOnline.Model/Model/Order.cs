@@ -16,6 +16,10 @@ namespace ShopOnline.Model.Model
         public int OrderID { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
+        public Int32 OrderCode { get; set; }
+
+        [Required]
         [MaxLength(100)]
         public string OrderCustomerName { get; set; }
 

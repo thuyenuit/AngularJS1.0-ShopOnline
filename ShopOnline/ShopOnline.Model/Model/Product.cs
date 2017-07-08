@@ -18,6 +18,11 @@ namespace ShopOnline.Model.Model
 
         [Required]
         [MaxLength(255)]
+        [Index(IsUnique = true)]
+        public string ProductCode { get; set; }
+
+        [Required]
+        [MaxLength(255)]
         public string ProductName { get; set; }
 
         [Required]

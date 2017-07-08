@@ -15,6 +15,11 @@ namespace ShopOnline.Model.Model
 
         [Required]
         [MaxLength(255)]
+        [Index(IsUnique = true)]
+        public string PostCode { get; set; }
+
+        [Required]
+        [MaxLength(255)]
         public string PostsName { get; set; }
 
         [Required]
