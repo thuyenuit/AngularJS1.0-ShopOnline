@@ -63,21 +63,13 @@
     <Compile Include="Infrastructure\Implements\UnitOfWork.cs" />
     <Compile Include="Infrastructure\Interfaces\IDbFactory.cs" />
     <Compile Include="Infrastructure\Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201706181452385_InitialDB.cs" />
-    <Compile Include="Migrations\201706181452385_InitialDB.Designer.cs">
-      <DependentUpon>201706181452385_InitialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201707021619451_InitialDB.cs" />
+    <Compile Include="Migrations\201707021619451_InitialDB.Designer.cs">
+      <DependentUpon>201707021619451_InitialDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706181717046_Add_ErrorLog_Table.cs" />
-    <Compile Include="Migrations\201706181717046_Add_ErrorLog_Table.Designer.cs">
-      <DependentUpon>201706181717046_Add_ErrorLog_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706250039114_Add-Initial-ASPNETIdentity.cs" />
-    <Compile Include="Migrations\201706250039114_Add-Initial-ASPNETIdentity.Designer.cs">
-      <DependentUpon>201706250039114_Add-Initial-ASPNETIdentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706250116069_Changkey.cs" />
-    <Compile Include="Migrations\201706250116069_Changkey.Designer.cs">
-      <DependentUpon>201706250116069_Changkey.cs</DependentUpon>
+    <Compile Include="Migrations\201707021622163_addUser.cs" />
+    <Compile Include="Migrations\201707021622163_addUser.Designer.cs">
+      <DependentUpon>201707021622163_addUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,17 +106,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706181452385_InitialDB.resx">
-      <DependentUpon>201706181452385_InitialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707021619451_InitialDB.resx">
+      <DependentUpon>201707021619451_InitialDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706181717046_Add_ErrorLog_Table.resx">
-      <DependentUpon>201706181717046_Add_ErrorLog_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706250039114_Add-Initial-ASPNETIdentity.resx">
-      <DependentUpon>201706250039114_Add-Initial-ASPNETIdentity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706250116069_Changkey.resx">
-      <DependentUpon>201706250116069_Changkey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707021622163_addUser.resx">
+      <DependentUpon>201707021622163_addUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
